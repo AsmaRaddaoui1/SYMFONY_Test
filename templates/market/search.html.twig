@@ -1,0 +1,23 @@
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>description</td>
+        <td>validationdate</td>
+        <td>Actions</td> 
+    </tr>
+
+    {% for m in list %} 
+    <tr>
+        <td>{{ m.id }}</td>
+        <td>{{ m.name }}</td>
+        <td>{{ m.description }}</td>
+        <td>{{ m.validationdate | date }}</td>
+        <td><a href="{{ path('app_updatemarket', {id: m.id}) }}">update</a></td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">Aucun marché trouvé.</td>
+    </tr>
+    {% endfor %}
+</table>
